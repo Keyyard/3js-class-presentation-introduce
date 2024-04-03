@@ -133,13 +133,6 @@ animationScripts.push({
   },
 });
 
-animationScripts.push({
-  start: 80,
-  end: 101,
-  func: () => {
-  },
-});
-
 function playScrollAnimations() {
   animationScripts.forEach((a) => {
     if (scrollPercent >= a.start && scrollPercent < a.end) {
