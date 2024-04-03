@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tmh's 3js presentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        overflow-x: hidden;
+        margin: 0px;
+        font-family: monospace;
+        color: white;
+      }
+
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      main {
+        width: 100vw;
+        height: 200vw;
+        z-index: 99;
+        position: absolute;
+        justify-content: center;
+        text-align: center;
+        pointer-events: none;
+        font-size: 5vh;
+      }
+
+      section {
+        min-height: 100vh;
+        padding: 20px;
+        font-size: 4vh;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section class="flex justify-center items-center">
+        <h1 class="text-6xl font-bold mb-24">
+          Welcome to tmh's 3js presentation
+        </h1>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">
+          Did you ever imagine that how these graphics and games are run on a web-browser? What is the main technology behind it?
+        </h2>
+        <p class="text-lg px-32 mt-12">In previous days we used WebGL for this task. WebGL(Web graphics
+          Library) is JavaScript API which is used to render the 3-dimensional
+          objects, 2-dimensional objects and Graphics on the Web-Browser</p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">Why 3JS when we have WebGL</h2>
+        <p class="text-lg mt-12 px-32">WebGL is very low level system that only draws basic objects like point, square and line. To do any meaningful thing with WebGL generally requires quite a bit of code and that is where Three.js comes in. </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">What is Three.js?</h2>
+        <p class="text-lg mt-12 px-32">Three.js is a cross-browser JavaScript library and application programming interface (API) used to create and display animated 3D computer graphics in a web browser. Three.js uses WebGL.</p>
+                <p class="text-lg mt-12 px-32">Three.js was released by Ricardo Cabello in April 2010.</p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">Why Three.js?</h2>
+        <p class="text-lg mt-12 px-32">Three.js makes WebGL - 3D in the browser - very easy. While a simple cube in raw WebGL would take hundreds of lines of code, a Three.js equivalent is just a few lines.</p>
+        <p class="text-lg mt-12 px-32">Since we are using JavaScript, we can also interact with other HTML elements easily</p>
+      </section>
+        <section>
+          <h2 class="text-3xl font-bold px-64">Advantages of Three.js</h2>
+          <p class="text-lg mt-12 px-32">Since Three.js is open source, we can easily watch the source code and understand the functionality of the code (functions).</p>
+          <p class="text-lg mt-12 px-32">When we use WebGL for graphics, it doesn't support most browsers, but Three.js supports most browsers.</p>
+          <p class="text-lg mt-12 px-32">It doesn't require any third-party plugin to run the code.</p>
+          <p class="text-lg mt-12 px-32">You just need to work with JavaScript and HTML.</p>
+        </section>
+        <section>
+            <h2 class="text-3xl font-bold px-64">How To Include Three.js in Your Projects?</h2>
+            <p class="text-lg px-32 mt-4">Download the Three.js library from the official website.</p>
+            <p class="text-lg px-32 mt-4">Use a CDN to include the Three.js library in your HTML file.</p>
+            <p class="text-lg px-32 mt-4">Use Node.js to install Three.js as a dependency in your project.</p>
+        </section>
+            <section>
+              <h2 class="text-3xl font-bold px-64">How a 3D Scene Works?</h2>
+              <p class="text-xl mt-12 px-32">In a 3D scene, there are several key components:</p>
+              <p class="text-lg px-32">
+                Scene: Contains all the objects, lights, and cameras in the scene.
+              </p>
+              <p class="text-lg px-32">
+                Camera: Determines the perspective and view of the scene.
+              </p>
+              <p class="text-lg px-32">
+                Object: Represents the 3D objects in the scene, combining 
+                <br/> and material to define their appearance and properties.
+              </p>
+              <p class="text-lg px-32">
+                Lighting: Light up the scene.
+              </p>
+              <p class="text-lg px-32">
+                Renderer: Renders the scene onto the canvas.
+              </p>
+            </section>
+      <section>
+        <h2 class="text-3xl font-bold">The result is what you are seeing!</h2>
+        <p class="text-lg">
+          Scroll back to the top to reverse the animation
+        </p>
+      </section>
+    </main>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
