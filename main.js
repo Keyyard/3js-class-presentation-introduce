@@ -109,7 +109,7 @@ animationScripts.push({
 //add an animation 
 animationScripts.push({
   start: 70,
-  end: 100,
+  end: 101,
   func: () => {
     tvLight.color.set(Math.random() * 0xffffff); // Change the TV light color to a random color on each frame
     tvLight.intensity = Math.random() * 10 + 10;
