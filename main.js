@@ -1,11 +1,16 @@
 import * as THREE from 'three';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls';
 
 const scene = new THREE.Scene();
 
-const gridHelper = new THREE.GridHelper(10, 10, 0xaec6cf, 0xaec6cf);
-scene.add(gridHelper);
+//const gridHelper = new THREE.GridHelper(5, 5, 0xaec6cf, 0xaec6cf);
+//scene.add(gridHelper);
+
+//grid xyz
+//const axesHelper = new THREE.AxesHelper(5);
+//scene.add(axesHelper);
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -23,6 +28,42 @@ const material = new THREE.MeshBasicMaterial({
   color: 0x00ff00,
   wireframe: true,
 });
+
+//floor
+const floor = new THREE.Mesh(
+  new THREE.PlaneGeometry(7.5, 7.5, 1, 1),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('assets/floor.png'),
+    side: THREE.DoubleSide,
+    lightMap: new THREE.TextureLoader().load('assets/floor.png')
+  })
+);
+floor.rotation.x = -Math.PI / 2;
+scene.add(floor);
+
+//walls similar to floor but with different texture and rotation
+const wall1 = new THREE.Mesh(
+  new THREE.PlaneGeometry(7.5, 7.5, 1, 1),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('assets/wall.png'),
+    side: THREE.DoubleSide,
+    lightMap: new THREE.TextureLoader().load('assets/wall.png')
+  })
+);
+wall1.position.z = -3.75;
+wall1.position.y= 3.75;
+
+scene.add(wall1);
+
+const wall2 = wall1.clone();
+wall2.rotation.y = Math.PI / 2;
+wall2.position.x = -3.75;
+wall2.position.z = 0;
+wall2.position.y= 3.75;
+scene.add(wall2);
+
+
+//objs
 
 const loader = new GLTFLoader();
 let char;
@@ -62,10 +103,19 @@ loader.load('assets/tv.glb', function (gltf) {
   scene.add(tv);
 });
 
-//tv screen light orange
+//tv screen light 
 const tvLight = new THREE.PointLight(0xffcc00, 15, 100);
 tvLight.position.set(0, 0.5, 2.3);
 scene.add(tvLight);
+
+//tv stand
+loader.load('assets/table.glb', function (gltf) {
+  table = gltf.scene;
+  table.scale.set(0.5, 0.5, 0.5);
+  table.position.set(0, 0, 2.3);
+  scene.add(table);
+});
+
 
 window.addEventListener('resize', onWindowResize, false);
 function onWindowResize() {
@@ -99,9 +149,8 @@ animationScripts.push({
   start: 0,
   end: 40,
   func: () => {
-    camera.lookAt(char.position);
     camera.position.set(0, 1, 2);
-    char.position.z = lerp(-12, -1, scalePercent(0, 40));
+    camera.position.z = lerp(1, 12, scalePercent(0, 40)*0.3);
     //console.log(cube.position.z)
   },
 });
@@ -126,8 +175,8 @@ animationScripts.push({
   start: 60,
   end: 80,
   func: () => {
-    camera.position.x = lerp(0, 5, scalePercent(60, 80));
-    camera.position.y = lerp(1, 5, scalePercent(60, 80));
+    camera.position.x = lerp(0, 5, scalePercent(60, 80)*0.4);
+    camera.position.y = lerp(1, 5, scalePercent(60, 80)*0.4);
     camera.lookAt(char.position);
     //console.log(camera.position.x + " " + camera.position.y)
   },
@@ -168,6 +217,30 @@ function animate() {
 function render() {
   renderer.render(scene, camera);
 }
+
+
+  const controls = new PointerLockControls(camera, document.body);
+  document.addEventListener('click', () => {
+    controls.lock();
+  });
+   
+  //get camera looking direction
+  //console.log(camera.getWorldDirection(new THREE.Vector3()));
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'w') {
+      controls.moveForward(0.1);
+    }
+    if (e.key === 's') {
+      controls.moveForward(-0.1);
+    }
+    if (e.key === 'a') {
+      controls.moveRight(-0.1);
+    }
+    if (e.key === 'd') {
+      controls.moveRight(0.1);
+    }
+  });
 
 window.scrollTo({ top: 0, behavior: 'smooth' });
 animate();

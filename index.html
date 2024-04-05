@@ -9,11 +9,21 @@
       rel="stylesheet"
     />
     <style>
+      html {
+        /*This will hide the scrollbar*/
+        scrollbar-width: none;
+        /*For Internet Explorer*/
+        -ms-overflow-style: none;
+      }
       body {
-        overflow-x: hidden;
         margin: 0px;
-        font-family: monospace;
+        font-family: "VCR OSD Mono", monospace;
         color: white;
+      }
+
+      @font-face {
+        font-family: "VCR OSD Mono";
+        src: url("assets/VCR_OSD_MONO_1.001.ttf");
       }
 
       canvas {
@@ -39,6 +49,9 @@
         font-size: 4vh;
       }
 
+      p {
+        font-weight: 200;
+      }
     </style>
   </head>
 
@@ -46,69 +59,230 @@
     <main>
       <section class="flex justify-center items-center">
         <h1 class="text-6xl font-bold mb-24">
-          Welcome to tmh's 3js presentation
+          Welcome to tmh's three.js presentation
         </h1>
       </section>
       <section>
         <h2 class="text-3xl font-bold px-64">
-          Did you ever imagine that how these graphics and games are run on a web-browser? What is the main technology behind it?
+          Did you ever imagine that how these graphics and games are run on a
+          web-browser? What is the main technology behind it?
         </h2>
-        <p class="text-lg px-32 mt-12">In previous days we used WebGL for this task. WebGL(Web graphics
+        <p class="text-lg px-32 mt-12">
+          In previous days we used WebGL for this task. WebGL(Web graphics
           Library) is JavaScript API which is used to render the 3-dimensional
-          objects, 2-dimensional objects and Graphics on the Web-Browser</p>
+          objects, 2-dimensional objects and Graphics on the Web-Browser
+        </p>
       </section>
       <section>
         <h2 class="text-3xl font-bold px-64">Why 3JS when we have WebGL</h2>
-        <p class="text-lg mt-12 px-32">WebGL is very low level system that only draws basic objects like point, square and line. To do any meaningful thing with WebGL generally requires quite a bit of code and that is where Three.js comes in. </p>
+        <p class="text-lg mt-12 px-32">
+          WebGL is very low level system that only draws basic objects like
+          point, square and line. To do any meaningful thing with WebGL
+          generally requires quite a bit of code and that is where Three.js
+          comes in.
+        </p>
       </section>
-      <section>
+      <section class="text-black">
         <h2 class="text-3xl font-bold px-64">What is Three.js?</h2>
-        <p class="text-lg mt-12 px-32">Three.js is a cross-browser JavaScript library and application programming interface (API) used to create and display animated 3D computer graphics in a web browser. Three.js uses WebGL.</p>
-                <p class="text-lg mt-12 px-32">Three.js was released by Ricardo Cabello in April 2010.</p>
+        <p class="text-lg mt-12 px-32">
+          Three.js is a cross-browser JavaScript library and application
+          programming interface (API) used to create and display animated 3D
+          computer graphics in a web browser. Three.js uses WebGL.
+        </p>
+        <p class="text-lg mt-12 px-32">
+          Three.js was released by Ricardo Cabello in April 2010.
+        </p>
       </section>
       <section>
         <h2 class="text-3xl font-bold px-64">Why Three.js?</h2>
-        <p class="text-lg mt-12 px-32">Three.js makes WebGL - 3D in the browser - very easy. While a simple cube in raw WebGL would take hundreds of lines of code, a Three.js equivalent is just a few lines.</p>
-        <p class="text-lg mt-12 px-32">Since we are using JavaScript, we can also interact with other HTML elements easily</p>
+        <p class="text-lg mt-12 px-32">
+          Three.js makes WebGL - 3D in the browser - very easy. While a simple
+          cube in raw WebGL would take hundreds of lines of code, a Three.js
+          equivalent is just a few lines.
+        </p>
+        <p class="text-lg mt-12 px-32">
+          Since we are using JavaScript, we can also interact with other HTML
+          elements easily
+        </p>
       </section>
-        <section>
-          <h2 class="text-3xl font-bold px-64">Advantages of Three.js</h2>
-          <p class="text-lg mt-12 px-32">Since Three.js is open source, we can easily watch the source code and understand the functionality of the code (functions).</p>
-          <p class="text-lg mt-12 px-32">When we use WebGL for graphics, it doesn't support most browsers, but Three.js supports most browsers.</p>
-          <p class="text-lg mt-12 px-32">It doesn't require any third-party plugin to run the code.</p>
-          <p class="text-lg mt-12 px-32">You just need to work with JavaScript and HTML.</p>
-        </section>
-        <section>
-            <h2 class="text-3xl font-bold px-64">How To Include Three.js in Your Projects?</h2>
-            <p class="text-lg px-32 mt-4">Download the Three.js library from the official website.</p>
-            <p class="text-lg px-32 mt-4">Use a CDN to include the Three.js library in your HTML file.</p>
-            <p class="text-lg px-32 mt-4">Use Node.js to install Three.js as a dependency in your project.</p>
-        </section>
-            <section>
-              <h2 class="text-3xl font-bold px-64">How a 3D Scene Works?</h2>
-              <p class="text-xl mt-12 px-32">In a 3D scene, there are several key components:</p>
-              <p class="text-lg px-32">
-                Scene: Contains all the objects, lights, and cameras in the scene.
-              </p>
-              <p class="text-lg px-32">
-                Camera: Determines the perspective and view of the scene.
-              </p>
-              <p class="text-lg px-32">
-                Object: Represents the 3D objects in the scene, combining 
-                <br/> and material to define their appearance and properties.
-              </p>
-              <p class="text-lg px-32">
-                Lighting: Light up the scene.
-              </p>
-              <p class="text-lg px-32">
-                Renderer: Renders the scene onto the canvas.
-              </p>
-            </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">Advantages of Three.js</h2>
+        <p class="text-lg mt-12 px-32">
+          Since Three.js is open source, we can easily watch the source code and
+          understand the functionality of the code (functions).
+        </p>
+        <p class="text-lg mt-12 px-32">
+          When we use WebGL for graphics, it doesn't support most browsers, but
+          Three.js supports most browsers.
+        </p>
+        <p class="text-lg mt-12 px-32">
+          It doesn't require any third-party plugin to run the code.
+        </p>
+        <p class="text-lg mt-12 px-32">
+          You just need to work with JavaScript and HTML.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">
+          How To Include Three.js in Your Projects?
+        </h2>
+        <p class="text-lg px-32 mt-4">
+          Download the Three.js library from the official website.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Use a CDN to include the Three.js library in your HTML file.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Use Node.js to install Three.js as a dependency in your project.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How a 3D Scene Works?</h2>
+        <p class="text-xl mt-12 px-32">
+          In a 3D scene, there are several key components:
+        </p>
+        <p class="text-lg px-32">
+          Scene: Contains all the objects, lights, and cameras in the scene.
+        </p>
+        <p class="text-lg px-32">
+          Camera: Determines the perspective and view of the scene.
+        </p>
+        <p class="text-lg px-32">
+          Object: Represents the 3D objects in the scene, combining
+          <br />
+          and material to define their appearance and properties.
+        </p>
+        <p class="text-lg px-32">Lighting: Light up the scene.</p>
+        <p class="text-lg px-32">Audio: Plays the sounds/music.</p>
+        <p class="text-lg px-32">
+          Renderer: Renders the scene onto the canvas.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Create a 3D Scene?</h2>
+        <p class="text-lg mt-12 px-32">
+          To create a 3D scene in Three.js, you need to follow these steps:
+        </p>
+        <p class="text-lg px-32 mt-4">Create a scene, camera, and renderer.</p>
+        <p class="text-lg px-32 mt-4">
+          Add objects, lights, and cameras to the scene.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Set up the camera position and perspective.
+        </p>
+        <p class="text-lg px-32 mt-4">Render the scene using the renderer.</p>
+        <p class="text-lg px-32 mt-4">
+          Update the scene in the animation loop.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Create a 3D Object?</h2>
+        <p class="text-lg mt -12 px-32">
+          To create a 3D object in Three.js, you need to follow these steps:
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Create a geometry to define the shape of the object.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Create a material to define the appearance of the object.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Combine the geometry and material to create a mesh.
+        </p>
+        <p class="text-lg px-32 mt-4">Add the mesh to the scene.</p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Load Models?</h2>
+        <p class="text-lg mt-12 px-32">
+          To load 3D models into a Three.js scene, you can use GLTFLoader,
+          FBXLoader, or OBJLoader. The models loaded can be animated and
+          interacted with like any other object in the scene.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Animate a 3D Object?</h2>
+        <p class="text-lg mt -12 px-32">
+          To animate a 3D object in Three.js, you need to follow these steps:
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Update the object's position, rotation, or scale in the animation
+          loop.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Use the requestAnimationFrame() method to update the animation.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          You can use the TWEEN.js library to create complex animations.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Add Interaction?</h2>
+        <p class="text-lg mt-12 px-32">
+          There are several interactions type in Three.js, each with its own unique usage.
+        </p>
+        <p class="text-lg px -32 mt-4">
+          The Raycaster class detects mouse clicks on objects.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          the OrbitControls class to allow users to rotate the camera field of view around the scene, and even move the camera.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          The PointerLockControls class to allow users to move the camera around the scene using the mouse or keyboard controls.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Add Physics?</h2>
+        <p class="text-lg mt-12 px-32">
+          To add physics to a 3D scene in Three.js, you need to follow these
+          steps:
+        </p>
+        <p class="text-lg px -32 mt-4">
+          Use the Cannon.js library to create physics simulations.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Create a world, bodies, and constraints to define the physics scene.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Update the physics simulation in the animation loop.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Add Audio?</h2>
+        <p class="text-lg mt-12 px-32">
+          To add audio to a 3D scene in Three.js, you need to follow these
+          steps:
+        </p>
+        <p class="text-lg px -32 mt-4">
+          Use the Web Audio API to load and play audio files.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Create an AudioListener and Audio object to control the audio.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Add the Audio object to the scene and play the audio.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold px-64">How to Add Post-Processing?</h2>
+        <p class="text-lg mt -12 px-32">
+          To add post-processing effects to a 3D scene in Three.js, you need to
+          follow these steps:
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Use the EffectComposer class to create post-processing effects.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Use the RenderPass and ShaderPass classes to define the effects.
+        </p>
+        <p class="text-lg px-32 mt-4">
+          Add the effects to the composer and render the scene.
+        </p>
+      </section>
+
+
       <section>
         <h2 class="text-3xl font-bold">The result is what you are seeing!</h2>
-        <p class="text-lg">
-          Scroll back to the top to reverse the animation
-        </p>
+        <p class="text-lg">Double click the mouse to interact with the scene, move with ASWD</p>
       </section>
     </main>
     <script type="module" src="main.js"></script>
