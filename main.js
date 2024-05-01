@@ -29,6 +29,14 @@ const material = new THREE.MeshBasicMaterial({
   wireframe: true,
 });
 
+//new object
+
+//background image
+const loader2 = new THREE.TextureLoader();
+const bgTexture = loader2.load('bg.jpg');
+scene.background = bgTexture;
+
+
 //floor
 const floor = new THREE.Mesh(
   new THREE.PlaneGeometry(7.5, 7.5, 1, 1),
@@ -62,6 +70,12 @@ wall2.position.z = 0;
 wall2.position.y= 3.75;
 scene.add(wall2);
 
+const wall3 = wall1.clone();
+wall3.rotation.y = Math.PI/2;
+wall3.position.x = 3.75;
+wall3.position.z = 0;
+wall3.position.y= 3.75;
+scene.add(wall3);
 
 //objs
 
@@ -219,28 +233,37 @@ function render() {
 }
 
 
-  const controls = new PointerLockControls(camera, document.body);
-  document.addEventListener('click', () => {
-    controls.lock();
-  });
-   
-  //get camera looking direction
-  //console.log(camera.getWorldDirection(new THREE.Vector3()));
-  
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'w') {
-      controls.moveForward(0.1);
+//control only available after page hit 99% scroll
+let controls;
+window.addEventListener('scroll', () => {
+  if (scrollPercent >= 99) {
+    if (!controls) {
+      controls = new PointerLockControls(camera, document.body);
+      document.addEventListener('click', () => {
+        controls.lock();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'w') {
+          controls.moveForward(0.1);
+        }
+        if (e.key === 's') {
+          controls.moveForward(-0.1);
+        }
+        if (e.key === 'a') {
+          controls.moveRight(-0.1);
+        }
+        if (e.key === 'd') {
+          controls.moveRight(0.1);
+        }
+      });
     }
-    if (e.key === 's') {
-      controls.moveForward(-0.1);
+  } else {
+    if (controls) {
+      controls.unlock();
+      controls = undefined;
     }
-    if (e.key === 'a') {
-      controls.moveRight(-0.1);
-    }
-    if (e.key === 'd') {
-      controls.moveRight(0.1);
-    }
-  });
+  }
+});
 
 window.scrollTo({ top: 0, behavior: 'smooth' });
 animate();
